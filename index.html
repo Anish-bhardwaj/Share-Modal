@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Share Modal | Anish </title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+    />
+</head>
+
+<body>
+    <!-- /// wrapper starts /// -->
+    <div class="wrapper">
+        <div class="circle-top circle"></div>
+        <div class="circle-bottom circle"></div>
+
+        <!-- /// card starts /// -->
+        <div class="card">
+            <img src="images/profile.jpeg" alt="user image">
+            <h2 class="user-name">Anish&nbsp;Bhardwaj</h2>
+            <h3 class="user-designation">Software Developer</h3>
+
+            <div class="buttons-group">
+                <button id="share-btn" onclick="activeclasses()">
+                    <i class="fa-solid fa-share"></i>
+                    Share My Profile
+                </button>
+                <button id="follow-btn" onclick="activeFollow()">Follow Me</button>
+            </div>
+        </div>
+        <!-- /// card ends /// -->
+    </div>
+    <!-- /// wrapper ends /// -->
+
+
+    <!-- /// profile Modal starts /// -->
+    <div class="modal" id="profile-modal">
+        <!-- modal header -->
+        <div class="modal-header">
+            <h2 class="modal-title">Share My Profile</h2>
+            <div class="closebutton" onclick="deactiveclasses()">
+                <i class="fa-solid fa-xmark modal-close" id="profile-modal-close"></i>
+            </div>
+        </div>
+
+        <!-- modal body -->
+        <div class="modal-body">
+            <h3 class="modal-title">Share this via</h3>
+
+            <div class="social-icons">
+                <a href="#" id="facebook-icon" class="icon" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#" id="twitter-icon" class="icon" target="_blank">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#" id="instagram-icon" class="icon" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#" id="whatsapp-icon" class="icon" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="#" id="telegram-icon" class="icon" target="_blank">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- /// profile Modal ends /// -->
+
+
+    <!-- /// follow Modal starts /// -->
+       <div class="modal" id="follow-modal"> 
+         <!-- modal header  -->
+        <div class="modal-header">
+            <h2 class="modal-title">Important Profiles</h2>
+            <div onclick="deactiveFollow()">
+                <i class="fa-solid fa-xmark modal-close" id="follow-modal-close"></i>
+            </div>
+        </div>
+
+        <!-- modal body -->
+        <div class="modal-body">
+            <h3 class="modal-title">Follow me on</h3>
+
+            <div class="social-icons follow-icons">
+                <a href="https://github.com/Anish-bhardwaj" id="github-icon-follow" class="icon" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/anish-bhardwaj-43351522b/" id="linkedin-icon-follow" class="icon" target="_blank">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/anish.bhardwj/" id="instagram-icon-follow" class="icon" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                
+            </div>
+        </div>
+    </div> 
+    <!-- /// follow Modal ends /// -->
+
+    <!-- overlay -->
+    <div class="overlay" id="overlay" onclick="deactiveclasses(); deactiveFollow();"></div>
+
+    <!-- custom script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html> 

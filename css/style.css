@@ -1,0 +1,429 @@
+@font-face {
+    font-family: 'Trebuchet MS';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Trebuchet MS'), url('font/trebuc.woff'), format('woff');
+    }
+    
+
+    @font-face {
+    font-family: 'Trebuchet MS Italic';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Trebuchet MS Italic'), url('font/Trebuchet-MS-Italic.woff'), format('woff');
+    }
+
+
+:root{
+    --white : #fff;
+    --black : #000;
+    --cardBorder : #ffffff30;
+    --cardBackground : #ffffff1a;
+    --btnBg : #ffffff00;
+    --btnFocus : #ffffffb9;
+
+    --facebook : #1771e6;
+    --twitter : #1c99e6;
+    --instagram : #cb2770;
+    --whatsapp : #2fe664;
+    --telegram : #0081c2;
+    --github : rgb(88, 101, 242);
+    --linkedin:rgb(0,119,181);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    overflow: hidden;
+    font-size: 1.6rem;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.wrapper{
+    background: url('../images/bg.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    object-fit: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.circle-top{
+    background: linear-gradient(-25deg, #d84869, #f46641);
+    box-shadow: 0 0 50px #d84869;
+    top: 4%;
+    left: 30%;
+    height: 13em;
+    width: 13em;
+    border-radius: 100%;
+    position: absolute;
+    animation: topanime 10s ease infinite;
+}
+.circle-bottom{
+    background: linear-gradient(-25deg, #5648d8, #8641f4);
+    box-shadow: 0 0 50px #5648d8;
+    bottom: 4%;
+    right: 30%;
+    height: 19em;
+    width: 19em;
+    border-radius: 100%;
+    position: absolute;
+    animation: bottomanime 10s ease infinite;
+}
+@keyframes topanime {
+    0%{}
+    50%{
+        top: 2%;
+        left: 32%;
+    }
+    100%{}
+    
+}
+@keyframes bottomanime {
+    0%{}
+    50%{
+        bottom: 6%;
+        right: 32%;
+    }
+    100%{}
+    
+}
+.card{
+    background: #ffffff1a;
+    backdrop-filter: blur(1.5rem);
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 7;
+    border-radius: 1rem;
+    padding: 20px 50px;
+    /* width: 500px;  */
+}
+.card img{
+    width: 15rem;
+    height: 15rem;
+    border-radius: 100%;
+    border: 2px solid var(--cardBorder);
+}
+.user-name{
+    color: white;
+}
+.user-designation{
+    color: #ffffff85;
+
+}
+.buttons-group{
+    
+    color: var(--btnFocus);
+    background: var(--btnBg);
+    text-transform: capitalize;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+#share-btn, #follow-btn{
+    border: 0.2rem solid var(--btnFocus);
+    border-radius: 0.4rem;
+    cursor: pointer;
+    padding: 0.9rem 1.2rem;
+    background-color: transparent;
+    color: var(--btnFocus);
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+#follow-btn{
+    padding: .9rem 1.5rem;
+}
+
+#share-btn:hover, #follow-btn:hover{
+    background-color: var(--btnFocus);
+    color: #000;
+}
+.closebutton{
+    cursor: pointer;
+}
+.modal {
+    width: 55rem;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    scale: 0;
+    background: #00000088;
+    padding: 2rem 2.5rem;
+    border: 0.2rem solid #ffffff59;
+    border-radius: 2rem;
+    backdrop-filter: blur(1rem);
+    transition: all 0.5s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    opacity: 0;
+  }
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    align-items: center;
+    padding-bottom: 1.2rem;
+    border-bottom: 0.1rem solid #ffffff88;
+    margin-bottom: 2.5rem; 
+}
+.closebutton,#follow-modal-close{
+    cursor: pointer;
+    font-size: 2.5rem;
+}
+.modal-body{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin: 1rem 0 2.5rem;
+}
+.modal-body h3{
+    font-size: 1.9rem;
+}
+.icon{
+    width: 6.5rem;
+    font-size: 2.7rem;
+    height: 6.5rem;
+    border-radius: 100%;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: all 0.5s;
+}
+.social-icons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.follow-icons{
+    justify-content: space-evenly;
+}
+#facebook-icon{
+    border: 1px solid var(--facebook);
+    color: var(--facebook);
+}
+#twitter-icon{
+    border: 1px solid var(--twitter);
+    color: var(--twitter);
+}
+#instagram-icon{
+    border: 1px solid var(--instagram);
+    color: var(--instagram);
+}
+#whatsapp-icon{
+    border: 1px solid var(--whatsapp);
+    color: var(--whatsapp);
+}
+#telegram-icon{
+    border: 1px solid var(--telegram);
+    color: var(--telegram);
+}
+#facebook-icon:hover{
+    color: white;
+    background-color: var(--facebook);
+}
+#twitter-icon:hover{
+    color: white;
+    background-color: var(--twitter);
+}
+#instagram-icon:hover{
+    color: white;
+    background-color: var(--instagram);
+}
+#whatsapp-icon:hover{
+    color: white;
+    background-color: var(--whatsapp);
+}
+#telegram-icon:hover{
+    color: white;
+    background-color: var(--telegram);
+}
+.overlay{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #5f5f5f83;
+    transition: 0.5s ease-in-out;
+    opacity: 0;
+    z-index: 5;
+}
+.model-active{
+    z-index: 10;
+    opacity: 1;
+    scale: 1;
+    
+}
+.overlay-active{
+    opacity: 1;
+    z-index: 8;
+}
+#instagram-icon-follow{
+    border: 1px solid var(--instagram);
+    color: var(--instagram);
+}
+#instagram-icon-follow:hover{
+    color: white;
+    background-color: var(--instagram);
+}
+#linkedin-icon-follow{
+    border: 1px solid var(--linkedin);
+    color: var(--linkedin);
+}
+#linkedin-icon-follow:hover{
+    color: white;
+    background-color: var(--linkedin);
+}
+#github-icon-follow{
+    border: 1px solid var(--github);
+    color: var(--github);
+}
+#github-icon-follow:hover{
+    color: white;
+    background-color: var(--github);
+}
+@media (max-width:750px) {
+    .circle-bottom{
+        width: 15rem;
+        height: 15rem;
+    }.circle-top{
+        width: 9rem;
+        left: 24%;
+        height: 9rem;
+    }
+    @keyframes topanime {
+        0%{}
+        50%{
+            top: 2%;
+            left: 27%;
+        }
+        100%{}
+        
+    }
+    @keyframes bottomanime {
+        0%{}
+        50%{
+            bottom: 2%;
+            right: 20%;
+        }
+        100%{}
+        
+    }
+    .modal {
+        width: 40rem;
+    }
+}
+@media (max-width:450px) {
+    .circle-bottom{
+        width: 13rem;
+        height: 13rem;
+        right: 8%;
+        bottom: 10%;
+    }.circle-top{
+        width: 6rem;
+        height: 6rem;
+        left: 6%;
+        top: 15%;
+    }
+    .card{
+        width: 300px;
+        /* height: 400px; */
+    }
+    .card img{
+        width: 120px;
+        height: 120px;
+    }
+    .user-designation{
+        font-size: 1.1rem;
+    }
+    .user-name{
+        font-size: 1.3rem;
+    }
+    .buttons-group{
+        flex-direction: column;
+    }
+
+    @keyframes topanime {
+        0%{}
+        50%{
+            top: 20%;
+            left: 12%;
+        }
+        100%{}
+        
+    }
+    @keyframes bottomanime {
+        0%{}
+        50%{
+            bottom: 5%;
+            right: 5%;
+        }
+        100%{}
+        
+    }
+    
+    .modal {
+        width: 25rem;
+    }
+    .social-icons{
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .icon{
+        width: 3.4rem;
+        font-size: 2rem;
+        height: 3.4rem;
+    }   
+    .follow-icons{
+        justify-content: space-evenly;
+    }
+    .modal-title,.modal-close {
+        align-items: center;
+        font-size: 1.75rem;
+    }
+}
+@media (max-width:350px) {
+    .card{
+        width: 83%;
+    }
+    .modal {
+        width: 20rem;
+    }
+    .modal-title {
+        align-items: center;
+        font-size: 1.25rem;
+    }
+    .modal-body h3{
+        font-size: 1.25rem;
+    }
+}
